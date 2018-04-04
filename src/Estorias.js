@@ -8,7 +8,8 @@ class Estorias extends Component{
                         exibirEstoria: false
                 }
         }
-        _handlecClick(){
+        _handlecClick(event){
+                event.preventDefault();
                 this.setState({
                         exibirEstoria: !this.state.exibirEstoria
                 })
@@ -16,6 +17,11 @@ class Estorias extends Component{
         render(){
                 let descricao;
                 let textoBotao = 'Exibir Estória';
+
+                if(this.state.exibirEstoria){
+                        descricao = <p>{this.props.descricao}<spam className="bagge white">{this.props.pontos} pontos</spam></p>;
+                        textoBotao = "Ocultar Estória";
+                }
                 return(
                         <div>
                                 <div className="row">
